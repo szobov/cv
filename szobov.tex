@@ -1,0 +1,140 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+\moderncvstyle{casual}
+\moderncvcolor{blue}
+\usepackage[scale=0.75]{geometry}
+
+\usepackage{xparse} % Used for `getenv` command
+
+\ExplSyntaxOn
+
+\NewDocumentCommand{\getenv}{om}
+ {
+  \sys_get_shell:nnN { kpsewhich ~ --var-value ~ #2 } { } \l_tmpa_tl
+  \tl_trim_spaces:N \l_tmpa_tl
+  \IfNoValueTF { #1 }
+   {
+    \tl_use:N \l_tmpa_tl
+   }
+   {
+    \tl_set_eq:NN #1 \l_tmpa_tl
+   }
+ }
+
+\ExplSyntaxOff
+
+% Personal data
+%
+\name{Sergei}{Zobov}
+\title{Senior Software Engineer / Tech Lead}
+\address{\getenv{CV_ADDRESS}}
+\phone[mobile]{\getenv{CV_PHONE}}
+\email{\getenv{CV_EMAIL}}
+\photo[64pt][0.4pt]{profile_pic.jpeg}
+
+\begin{document}
+
+\makecvtitle
+
+\section{Experience}
+
+\cventry{Feb 2023 - Present}{Senior Software Engineer}{\href{https://www.linkedin.com/company/micropsi-industries}{Micropsi Industries}}{Berlin, Germany}{}{
+\begin{itemize}
+    \item Improved test run speed by 30x within the first three days of working.
+    \item Integrated automated linting and static code analysis tools.
+    \item Optimized CI pipeline, reducing the company's CI credit expenses.
+    \item Implemented Android simulator for black-box testing.
+    \item Planned and executed anomaly detection integration.
+    \item Upgraded the most critical part of the product.
+    \item Remove GPU as a main dependency of the product, reducing the cost of the product.
+    \item Enhanced reliability of hardware driver in C++.
+    \item Conducted knowledge-sharing seminars.
+\end{itemize}
+}
+
+\cventry{Nov 2020 - Feb 2023}{Senior Research Engineer}{\href{https://www.linkedin.com/company/arrival/}{ARRIVAL}}{Berlin, Germany}{}{
+\begin{itemize}
+    \item Worked on research in computer graphics, 3D geometry, computational geometry and path planning.
+    \item Worked in a group of research engineers on publishing scientific papers.
+    \item Contributed to open-source projects.
+    \item Integrated in-house solutions for enhanced functionality.
+    \item Managed literature research, task planning, and solution deployment.
+    \item Technical stack: Python, Jupyter notebooks, C++ (CGAL, IGL).
+\end{itemize}
+}
+
+\cventry{Nov 2020 - Feb 2023}{Senior Software}{ARRIVAL}{St Petersburg City, Russia}{}{
+\begin{itemize}
+    \item Focused on C++ and Python coding for machine integration in composite production.
+\end{itemize}}
+
+\cventry{May 2018 - Jan 2020}{Technical Lead}{\href{https://www.linkedin.com/company/cnord/}{C.Nord Ltd.}}{St Petersburg, Russia}{}{
+\begin{itemize}
+    \item Led automated security monitoring project with UAV.
+    \item Involved in all engineering aspects, including firmware, hardware, control systems, and computer vision.
+    \item Managed a team of engineers.
+    \item Project stack: PX4, ROS1, OpenCV, C++, Golang, Python, protobuf.
+\end{itemize}}
+
+\cventry{Nov 2015 - May 2018}{Senior Software Engineer}{C.Nord Ltd.}{St Petersburg, Russia}{}{
+\begin{itemize}
+    \item Planned and developed various projects like distributed cloud services for security companies.
+    \item Skills: Python, Tornado, Flask, AngularJS, PostgreSQL, RabbitMQ, Docker, Ansible.
+\end{itemize}}
+
+\cventry{Jul 2014 - Nov 2015}{Python Developer}{Miran}{St Petersburg, Russia}{}{
+\begin{itemize}
+    \item Developed and supported telecommunications systems.
+    \item Skills: Python, Django, AngularJS, SQL (PostgreSQL), Bash.
+\end{itemize}
+}
+
+\cventry{Aug 2013 - Mar 2014}{Technical Support Engineer}{\href{https://www.linkedin.com/company/infobox-ru/}{Infobox}}{St Petersburg, Russia}{}{
+\begin{itemize}
+    \item Provided technical support for Microsoft-based virtual hosting services.
+    \item Involved in writing help center manuals and knowledge base articles.
+\end{itemize}
+}
+
+\section{Education}
+\cventry{2011 - 2015}{Bachelor's Degree in Information Technology}{ITMO University}{St Petersburg, Russia}{}{}
+
+% \section{Skills}
+% \cvitem{Programming}{Python, C++, Golang}
+% \cvitem{Operating Systems}{Linux, }
+
+\section{Languages}
+\cvitem{English}{Professional working proficiency}
+\cvitem{German}{Limited working proficiency}
+\cvitem{Japanese}{Elementary proficiency}
+\cvitem{Russian}{Native or bilingual proficiency}
+
+\section{Recommendations}
+
+\cventry{Dec 2023}{Dmitriy Tumanov}{Product Manager}{ARRIVAL}{}{
+      I would like to recommend Sergei as a highly dedicated and innovative research engineer. His strong commitment to the practical application of technology was evident throughout our collaboration. Sergei's contributions were instrumental in the development and real-world application of the technology. His deep understanding and practical approach make him a valuable asset to any team or project. I believe Sergei would be an excellent addition to any organization seeking a combination of technical expertise and a results-oriented mindset.
+}
+
+\cventry{Dec 2023}{Dmitrii Markov}{Senior Product Designer}{Vinivia}{}{
+      I am pleased to recommend Sergei. Although our collaboration was brief, his exceptional talents and interpersonal skills left a lasting impression. Sergei combines strong communication with a genuine empathy, making him a standout colleague. He is particularly adept at providing constructive feedback and is always willing to share his knowledge generously. Sergei's ability to collaborate and contribute positively to a team is remarkable. He would undoubtedly be a great asset in any professional environment.
+}
+
+\cventry{May 2021}{Damian Bogunowicz}{ML Engineer}{NeuralMagic}{}{
+      Sergei is an amazing engineer and a great colleague. \newline He is the embodiment of what the software engineer should represent. His knowledge goes not only very broad but also very deep. I have learned a lot from him about the software development. He passed on to me many python programming, docker and productivity tricks. A true "swiss knife engineer", which has very good holistic understanding of the system at hand. \newline As a colleague he is a charming, funny and very helpful guy. Really great to interact with and learn from. I always felt that I can count on him for support or advice!
+}
+
+\section{Organizations}
+
+\cventry{Feb 2023 - Present}{Co-organizer}{Berlin Robotics Meetup}{Berlin, Germany}{}{
+\begin{itemize}
+    \item I'm organizing and hosting the \href{https://www.meetup.com/de-DE/Berlin-Robotics-Meetup/}{Berlin Robotics Meetup}, a platform for robotics enthusiasts and professionals.
+    \item I participated as a speaker
+\end{itemize}
+}
+\begin{minipage}{\textwidth}
+\section{Online Profiles and Blog}
+\cvitem{Blog}{\href{http://blog.szobov.ru}{blog.szobov.ru}}
+\cvitem{GitHub}{\href{https://github.com/szobov}{github.com/szobov}}
+\cvitem{LinkedIn}{\href{https://www.linkedin.com/in/szobovdev/}{linkedin.com/in/szobovdev}}
+\end{minipage}
+
+\end{document}
